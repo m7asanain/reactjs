@@ -5,15 +5,23 @@ class Counter extends Component {
     count: 0
   }
 
-  buttonHandler() {
-    console.log('Button Clicked!');
+  // first solution 
+  // constructor() {
+  //   super();
+  //   // console.log('Constructor', this);
+  //   this.handleIncrement = this.handleIncrement.bind(this); // with this we can update the state property
+  // }
+
+  // second solution (convert the method to arrow function)
+  handleIncrement = () => {
+    console.log('Increment Clicked!', this);
   }
 
   render() {
-    return(
+    return (
       <React.Fragment>
         <span className={this.getbadgeClasses()}>{this.counterFormat()}</span>
-        <button onClick={this.buttonHandler} className="btn btn-secondary btn-sm">Increment</button>
+        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
       </React.Fragment>
     )
   }
